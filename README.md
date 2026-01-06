@@ -18,6 +18,6 @@ This repository is designed as a space to **learn new concepts and apply them in
 - **Beginners**
 - **Mid Level Users**
 
-# LearnAndApply - Part II
+# 1st Level heading
 
-## 2nd level auth
+## 2nd level heading
