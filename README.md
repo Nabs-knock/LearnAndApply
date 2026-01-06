@@ -1,4 +1,6 @@
 
+![Alt text](images/MHFA.png)
+
 # LearnAndApply
 
 Welcome to **LearnAndApply**!  
@@ -26,4 +28,4 @@ This repository is designed as a space to **learn new concepts and apply them in
 
 #### 4th level heading
 
-![Alt text](images/MHFA.png)
+
