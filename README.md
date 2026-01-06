@@ -14,6 +14,10 @@ This repository is designed as a space to **learn new concepts and apply them in
    ```bash
    git clone https://github.com/your-username/LearnAndApply.git
   
-## What will be the best use of it?
+## Who will be the user of it?
 - **Beginners**
-- **Mid Level Users** 
+- **Mid Level Users**
+
+# LearnAndApply - Part II
+
+## 2nd level auth
