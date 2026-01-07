@@ -11,7 +11,7 @@ baseurl: "/LearnAndApply"
 
 # Optionally set your full site URL (replace <username> below)
 # This helps generate correct absolute links and social previews.
-# url: "https://<username>.github.io"
+url: "https://Nabs-knock.github.io"
 
 # --- Markdown engine (Jekyll’s default is kramdown; this line is optional) ---
 markdown: kramdown
