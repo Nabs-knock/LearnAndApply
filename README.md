@@ -7,7 +7,7 @@ description: "Simple site using Cayman"
 # Welcome 👋
 This is my site using the **Cayman** theme.
 
- [Home](/https://nabs-knock.github.io/LearnAndApply) • [About](/https://nabs-knock.github.io/LearnAndApply/about) • [Posts](/posts) • [Contact](/LearnAndApply/contact) -->
+ [Home](/) • [About](/about) • [Posts](/posts) • [Contact](/LearnAndApply/contact) -->
 
 
 
