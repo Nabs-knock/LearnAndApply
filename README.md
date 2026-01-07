@@ -1,6 +1,6 @@
 
 ---
-title: "My Site"
+title: "LearnAndApply"
 description: "Simple site using Cayman"
 ---
 
