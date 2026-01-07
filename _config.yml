@@ -3,7 +3,7 @@ title: "Learn & Apply"
 description: "Notes, patterns, and experiments — Cayman"
 theme: jekyll-theme-cayman
 
-url: "https://<your-username>.github.io"   # ← replace with your actual username
+url: "https://nabs-knock.github.io"   # ← replace with your actual username
 baseurl: "/LearnAndApply"                  # ← must match repo name case exactly
 
 markdown: kramdown
