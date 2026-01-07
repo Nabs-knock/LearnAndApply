@@ -7,7 +7,7 @@ description: "Simple site using Cayman"
 # Welcome 👋
 This is my site using the **Cayman** theme.
 
-[Home](/) • [About](/about) • [Posts](/posts) • [Contact](/contact) 
+[Home](/LearnAndApply) • [About](/LearnAndApply/about) • [Posts](/LearnAndApply/posts) • [Contact](/LearnAndApply/contact) 
 
 
 
