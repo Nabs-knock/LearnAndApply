@@ -14,3 +14,4 @@ This is my site using the **Cayman** theme.
 - Share notes
 - Keep decisions visible
 - Link to resources
+- place for collaboration
