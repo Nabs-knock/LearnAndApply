@@ -46,14 +46,12 @@ The intention is to progress the following scope to develop our understanding of
 - Develop a workable technical solution to the scope listed above.  
 - Provide feedback to the future standards developed by DBB.  
 
----
 
-## Team Commitment  
+### Team Commitment  
 X people for X days per week.  
 
----
 
-## Ways of Working  
+### Ways of Working  
 - Initial collaboration and planning to be held in person.  
 - Detailed design and iterations can be carried out remotely and asynchronously.  
 - Google Workspace, Confluence and Jira will be the predominant tooling used.  
