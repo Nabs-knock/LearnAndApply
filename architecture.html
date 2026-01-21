@@ -52,11 +52,18 @@
             font-family: "GDS Transport", Arial, sans-serif;
             font-weight: 700;
             font-size: 16px;
-            text-decoration: none;
             transition: background-color 0.2s ease-in-out;
+        }
+        .architecture-box a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
         }
         .architecture-box:hover {
             filter: brightness(115%);
+        }
+        .architecture-box:hover a {
+            text-decoration: underline;
         }
         /* Colour variations */
         .layer-interaction { background: #4c2c92; }
@@ -134,61 +141,62 @@
         <h2 class="govuk-heading-l">Architecture Layers Explained</h2>
         <p class="govuk-body">This architecture is a high-level, logical representation of how UK government digital services interact. It is organised into layers, each showcasing a specific role in delivering citizen-facing services:</p>
 
+        <!-- Commentary -->
         <h3 class="govuk-heading-m">Digital Channels</h3>
-        <p class="govuk-body">These are the primary touchpoints for citizens, including GOV.UK websites, mobile apps, chat services, and trusted third-party solutions. They provide the front-end experience where users access information and complete tasks.</p>
+        <p class="govuk-body">These are the primary touchpoints for citizens...</p>
 
         <h3 class="govuk-heading-m">Interaction Layer</h3>
-        <p class="govuk-body">This layer acts as the bridge between citizen-facing channels and core systems. It includes services such as GOV.UK OneLogin for secure authentication, GOV.UK Pay for payments, GOV.UK Notify for communications, and APIs that enable integration across public and private sectors. Planned components like GOV.UK digital backbone will simplify interaction between government organisations.</p>
+        <p class="govuk-body">This layer acts as the bridge between citizen-facing channels and core systems...</p>
 
         <h3 class="govuk-heading-m">Business Logic</h3>
-        <p class="govuk-body">This layer contains the operational systems that deliver essential government services, such as HMRC for tax, DVLA for driver records, DWP for Universal Credit, and HMPO for passports. Each government organisation owns and runs its business logic and processes, optimising them based on user needs and policy requirements.</p>
+        <p class="govuk-body">This layer contains the operational systems that deliver essential government services...</p>
 
         <h3 class="govuk-heading-m">Data Layer</h3>
-        <p class="govuk-body">This layer ensures secure and efficient data exchange. It includes operational platforms like Whitehall CMS, the powerhouse behind GOV.UK content, and the Data Marketplace, which will enable better data sharing across departments and sectors.</p>
+        <p class="govuk-body">This layer ensures secure and efficient data exchange...</p>
 
         <h3 class="govuk-heading-m">Infrastructure</h3>
-        <p class="govuk-body">At the foundation are the National Digital Exchange and cloud services, providing scalability, resilience, and interoperability. This infrastructure supports the entire architecture, ensuring services remain reliable and future ready.</p>
+        <p class="govuk-body">At the foundation are the National Digital Exchange and cloud services...</p>
 
         <!-- Architecture Diagram -->
         <div class="architecture-diagram">
             <div class="govuk-heading-m layer-title">Citizen Facing Digital Channels</div>
             <div class="architecture-row">
-                <a href="#" class="architecture-box">GOV.UK Websites</a>
-                <a href="#" class="architecture-box">GOV.UK Notify</a>
-                <a href="#" class="architecture-box">GOV.UK Mobile App</a>
-                <a href="#" class="architecture-box">GOV.UK Chat</a>
-                <a href="#" class="architecture-box">Third Party Solutions</a>
+                <div class="architecture-box"><a href="#">GOV.UK Websites</a></div>
+                <div class="architecture-box"><a href="#">GOV.UK Notify</a></div>
+                <div class="architecture-box"><a href="#">GOV.UK Mobile App</a></div>
+                <div class="architecture-box"><a href="#">GOV.UK Chat</a></div>
+                <div class="architecture-box"><a href="#">Third Party Solutions</a></div>
             </div>
 
             <div class="govuk-heading-m layer-title">Interaction Layer</div>
             <div class="architecture-row">
-                <a href="#" class="architecture-box layer-interaction">GOV.UK Digital Backbone</a>
-                <a href="#" class="architecture-box layer-interaction">GOV.UK Forms</a>
-                <a href="#" class="architecture-box layer-interaction">GOV.UK OneLogin</a>
-                <a href="#" class="architecture-box layer-interaction">GOV.UK Pay</a>
-                <a href="#" class="architecture-box layer-interaction">Public Sector APIs</a>
+                <div class="architecture-box layer-interaction"><a href="#">GOV.UK Digital Backbone</a></div>
+                <div class="architecture-box layer-interaction"><a href="#">GOV.UK Forms</a></div>
+                <div class="architecture-box layer-interaction"><a href="#">GOV.UK OneLogin</a></div>
+                <div class="architecture-box layer-interaction"><a href="#">GOV.UK Pay</a></div>
+                <div class="architecture-box layer-interaction"><a href="#">Public Sector APIs</a></div>
             </div>
 
             <div class="govuk-heading-m layer-title">Business Logic</div>
             <div class="architecture-row">
-                <a href="#" class="architecture-box layer-business">HMRC Tax System</a>
-                <a href="#" class="architecture-box layer-business">DVLA Drivers System</a>
-                <a href="#" class="architecture-box layer-business">DEFRA Grants</a>
-                <a href="#" class="architecture-box layer-business">HMPO Passport</a>
-                <a href="#" class="architecture-box layer-business">MoJ Justice Services</a>
+                <div class="architecture-box layer-business"><a href="#">HMRC Tax System</a></div>
+                <div class="architecture-box layer-business"><a href="#">DVLA Drivers System</a></div>
+                <div class="architecture-box layer-business"><a href="#">DEFRA Grants</a></div>
+                <div class="architecture-box layer-business"><a href="#">HMPO Passport</a></div>
+                <div class="architecture-box layer-business"><a href="#">MoJ Justice Services</a></div>
             </div>
 
             <div class="govuk-heading-m layer-title">Data Layer</div>
             <div class="architecture-row">
-                <a href="#" class="architecture-box layer-data">GOV.UK CMS</a>
-                <a href="#" class="architecture-box layer-data">Data Marketplace</a>
-                <a href="#" class="architecture-box layer-data">Public Sector Data Stores</a>
+                <div class="architecture-box layer-data"><a href="#">GOV.UK CMS</a></div>
+                <div class="architecture-box layer-data"><a href="#">Data Marketplace</a></div>
+                <div class="architecture-box layer-data"><a href="#">Public Sector Data Stores</a></div>
             </div>
 
             <div class="govuk-heading-m layer-title">Infrastructure</div>
             <div class="architecture-row">
-                <a href="#" class="architecture-box layer-cloud">National Digital Exchange (Planned)</a>
-                <a href="#" class="architecture-box layer-cloud">Cloud Services (Planned)</a>
+                <div class="architecture-box layer-cloud"><a href="#">National Digital Exchange (Planned)</a></div>
+                <div class="architecture-box layer-cloud"><a href="#">Cloud Services (Planned)</a></div>
             </div>
         </div>
     </main>
