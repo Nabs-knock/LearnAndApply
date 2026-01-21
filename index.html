@@ -12,18 +12,39 @@
 
     <style>
         /* GOV.UK-inspired architecture diagram */
-        .architecture-diagram {
+        .app-content-wrapper {
+            display: flex;
             margin-top: 30px;
+        }
+        .app-sidebar {
+            background: #f3f2f1;
+            border-right: 1px solid #b1b4b6;
+            width: 220px;
+            padding: 20px;
+        }
+        .app-main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .architecture-diagram {
+            display: grid;
+            grid-template-columns: 200px auto;
+            gap: 20px;
+        }
+        .layer-title {
+            font-weight: bold;
+            font-size: 18px;
+            font-family: "GDS Transport", Arial, sans-serif;
+            margin-top: 10px;
         }
         .architecture-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 12px;
         }
         .architecture-box {
             flex: 1;
-            min-width: 180px;
+            min-width: 160px;
             background: #1d70b8;
             color: #fff;
             text-align: center;
@@ -58,12 +79,21 @@
             <a href="/" class="govuk-header__link govuk-header__link--homepage">GOV.UK</a>
         </div>
         <div class="govuk-header__content">
-            <a href="index.html" class="govuk-header__link govuk-header__service-name">
-                Digital Architecture
-            </a>
+            <a href="index.html" class="govuk-header__link govuk-header__service-name">Digital Architecture</a>
         </div>
     </div>
 </header>
+
+<!-- Top Navigation Tabs -->
+<nav class="app-service-nav">
+    <div class="govuk-width-container">
+        <ul class="app-service-nav__list" style="display:flex; list-style:none; padding:0; margin:0;">
+            <li><a class="app-service-nav__link app-service-nav__link--active" href="index.html">Documentation</a></li>
+            <li><a class="app-service-nav__link" href="#">Support</a></li>
+            <li><a class="app-service-nav__link" href="#">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
 <!-- Phase Banner -->
 <div class="govuk-width-container">
@@ -84,67 +114,16 @@
 </div>
 
 <!-- Content Wrapper -->
-<div class="govuk-width-container" style="margin-top:30px;">
-    <div class="architecture-diagram">
-        <!-- Citizen Facing Digital Channels -->
-        <h2 class="govuk-heading-m">Citizen Facing Digital Channels</h2>
-        <div class="architecture-row">
-            <a href="service-applications.html" class="architecture-box">GOV.UK Websites</a>
-            <a href="service-applications.html" class="architecture-box">GOV.UK Notify</a>
-            <a href="service-applications.html" class="architecture-box">GOV.UK Mobile App</a>
-            <a href="service-applications.html" class="architecture-box">GOV.UK Chat</a>
-            <a href="service-applications.html" class="architecture-box">Third Party Solutions</a>
-        </div>
+<div class="app-content-wrapper">
+    <!-- Sidebar Navigation -->
+    <nav class="app-sidebar">
+        <h2 class="govuk-heading-s">Contents</h2>
+        <ul class="govuk-list">
+            <li><a href="#citizen-facing">Citizen Facing Digital Channels</a></li>
+            <li><a href="#interaction-layer">Interaction Layer</a></li>
+            <li><a href="#business-logic">Business Logic</a></li>
+            <li><a href="#data-layer">Data Layer</a></li>
+            <li><a href="#planned-layers">Planned Layers</a></li>
+        </ul>
+    </nav>
 
-        <!-- Interaction Layer -->
-        <h2 class="govuk-heading-m">Interaction Layer</h2>
-        <div class="architecture-row">
-            <a href="integration.html" class="architecture-box layer-interaction">GOV.UK Digital Backbone</a>
-            <a href="integration.html" class="architecture-box layer-interaction">GOV.UK Forms</a>
-            <a href="integration.html" class="architecture-box layer-interaction">GOV.UK OneLogin</a>
-            <a href="integration.html" class="architecture-box layer-interaction">GOV.UK Pay</a>
-            <a href="integration.html" class="architecture-box layer-interaction">Public Sector APIs</a>
-        </div>
-
-        <!-- Business Logic -->
-        <h2 class="govuk-heading-m">Business Logic</h2>
-        <div class="architecture-row">
-            <a href="corporate-services.html" class="architecture-box layer-business">HMRC Tax System</a>
-            <a href="corporate-services.html" class="architecture-box layer-business">DVLA Drivers System</a>
-            <a href="corporate-services.html" class="architecture-box layer-business">DEFRA Grants</a>
-            <a href="corporate-services.html" class="architecture-box layer-business">HMPO Passport</a>
-            <a href="corporate-services.html" class="architecture-box layer-business">MoJ Justice Services</a>
-        </div>
-
-        <!-- Data Layer -->
-        <h2 class="govuk-heading-m">Data Layer</h2>
-        <div class="architecture-row">
-            <a href="data-information.html" class="architecture-box layer-data">GOV.UK CMS</a>
-            <a href="data-information.html" class="architecture-box layer-data">Data Marketplace</a>
-            <a href="data-information.html" class="architecture-box layer-data">Public Sector Data Stores</a>
-        </div>
-
-        <!-- Planned Layers -->
-        <h2 class="govuk-heading-m">Planned Layers</h2>
-        <div class="architecture-row">
-            <a href="#" class="architecture-box layer-exchange">National Digital Exchange (Planned)</a>
-            <a href="#" class="architecture-box layer-cloud">Cloud Services (Planned)</a>
-        </div>
-    </div>
-</div>
-
-<!-- GOV.UK Footer -->
-<footer class="govuk-footer">
-    <div class="govuk-width-container">
-        <p class="govuk-footer__meta">© Crown copyright</p>
-    </div>
-</footer>
-
-<!-- GOV.UK Frontend JS -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.js"></script>
-<script type="module">
-    import { initAll } from 'https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.js'
-    initAll()
-</script>
-</body>
-</html>
