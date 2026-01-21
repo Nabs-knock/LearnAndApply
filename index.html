@@ -9,7 +9,7 @@
 
     <!-- GOV.UK Frontend CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.css">
-    
+
     <style>
         .app-content-wrapper {
             display: flex;
@@ -59,6 +59,24 @@
         .layer-data { background: #d4351c; }
         .layer-exchange { background: #f47738; }
         .layer-cloud { background: #0b0c0c; }
+
+        /* Top navigation spacing */
+        .app-service-nav__list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 30px; /* Adds spacing between tabs */
+        }
+        .app-service-nav__link {
+            font-size: 19px;
+            font-weight: 600;
+            color: #1d70b8;
+            text-decoration: none;
+        }
+        .app-service-nav__link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body class="govuk-template__body">
@@ -81,10 +99,10 @@
 <!-- Top Navigation Tabs -->
 <nav class="app-service-nav govuk-!-margin-bottom-3" style="background:#f3f2f1; border-bottom:1px solid #b1b4b6;">
     <div class="govuk-width-container">
-        <ul class="app-service-nav__list" style="display:flex; list-style:none; padding:0; margin:0;">
-            <li><a class="app-service-nav__link govuk-link" href="index.html">Documentation</a></li>
-            <li><a class="app-service-nav__link govuk-link" href="#">Support</a></li>
-            <li><a class="app-service-nav__link govuk-link" href="#">Contact</a></li>
+        <ul class="app-service-nav__list">
+            <li><a class="app-service-nav__link" href="index.html">Documentation</a></li>
+            <li><a class="app-service-nav__link" href="#">Support</a></li>
+            <li><a class="app-service-nav__link" href="#">Contact</a></li>
         </ul>
     </div>
 </nav>
