@@ -76,53 +76,48 @@
         }
         .architecture-box a:focus,
         .architecture-box a:focus-visible {
-            outline: 3px solid #fd0; /* GOV.UK focus yellow */
+            outline: 3px solid #fd0;
             outline-offset: 2px;
-            text-decoration: none;
         }
 
-        /* ===== Alternating layer colours =====
-           Odd layers (1,3,5): Blue box, white text
-           Even layers (2,4):  White box, blue text, blue border
-        */
-        /* Layer 1: Blue */
-        .layer-1 .architecture-box {
+        /* Alternating layer colours */
+        .layer-1 .architecture-box,
+        .layer-3 .architecture-box,
+        .layer-5 .architecture-box {
             background: var(--govuk-blue);
             color: var(--white);
         }
-        .layer-1 .architecture-box a { color: var(--white); }
-
-        /* Layer 2: White with blue text/border */
-        .layer-2 .architecture-box {
-            background: var(--white);
-            color: var(--govuk-blue-ink);
-            border-color: var(--govuk-blue);
-        }
-        .layer-2 .architecture-box a { color: var(--govuk-blue-ink); }
-        .layer-2 .architecture-box:hover { filter: none; background: #eef5fb; } /* subtle hover */
-
-        /* Layer 3: Blue */
-        .layer-3 .architecture-box {
-            background: var(--govuk-blue);
+        .layer-1 .architecture-box a,
+        .layer-3 .architecture-box a,
+        .layer-5 .architecture-box a {
             color: var(--white);
         }
-        .layer-3 .architecture-box a { color: var(--white); }
 
-        /* Layer 4: White with blue text/border */
+        .layer-2 .architecture-box,
         .layer-4 .architecture-box {
             background: var(--white);
             color: var(--govuk-blue-ink);
             border-color: var(--govuk-blue);
         }
-        .layer-4 .architecture-box a { color: var(--govuk-blue-ink); }
-        .layer-4 .architecture-box:hover { filter: none; background: #eef5fb; }
-
-        /* Layer 5: Blue */
-        .layer-5 .architecture-box {
-            background: var(--govuk-blue);
-            color: var(--white);
+        .layer-2 .architecture-box a,
+        .layer-4 .architecture-box a {
+            color: var(--govuk-blue-ink);
         }
-        .layer-5 .architecture-box a { color: var(--white); }
+        .layer-2 .architecture-box:hover,
+        .layer-4 .architecture-box:hover {
+            background: #eef5fb;
+        }
+
+        /* Dotted borders */
+        .dotted { border-style: dotted; border-width: 2px; }
+
+        /* Contrast-aware dotted borders */
+        .layer-1 .dotted,
+        .layer-3 .dotted,
+        .layer-5 .dotted { border-color: var(--white); }
+
+        .layer-2 .dotted,
+        .layer-4 .dotted { border-color: var(--govuk-blue); }
 
         /* Navigation */
         .app-service-nav__list {
@@ -141,17 +136,14 @@
         .app-service-nav__link:hover {
             text-decoration: underline;
         }
-
-        /* Remove old per-layer colours that conflict */
-        /* .layer-interaction, .layer-business, .layer-data, .layer-exchange, .layer-cloud { } */
     </style>
 </head>
+
 <body class="govuk-template__body">
 <script>
     document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
 </script>
 
-<!-- GOV.UK Header -->
 <header class="govuk-header" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
         <div class="govuk-header__logo">
@@ -163,7 +155,6 @@
     </div>
 </header>
 
-<!-- Top Navigation Tabs -->
 <nav class="app-service-nav govuk-!-margin-bottom-3" style="background:#f3f2f1; border-bottom:1px solid #b1b4b6;">
     <div class="govuk-width-container">
         <ul class="app-service-nav__list">
@@ -174,14 +165,12 @@
     </div>
 </nav>
 
-<!-- Main Blue Header -->
 <div class="app-product-header govuk-!-padding-top-6 govuk-!-padding-bottom-6" style="background:#1d70b8; color:#fff; text-align:center;">
     <h1 class="govuk-heading-xl" style="color:#fff;">Citizen-facing reference architecture</h1>
 </div>
 
-<!-- Content Wrapper -->
 <div class="app-content-wrapper">
-    <!-- Sidebar Navigation -->
+
     <nav class="app-sidebar">
         <h2 class="govuk-heading-s">Contents</h2>
         <ul class="govuk-list govuk-list--bullet">
@@ -193,43 +182,57 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
     <main class="app-main-content">
-        <h2 class="govuk-heading-l">Architecture Layers Explained</h2>
-        <p class="govuk-body">This architecture is a high-level, logical representation of how UK government digital services interact. It is organised into layers, each showcasing a specific role in delivering citizen-facing services:</p>
 
-        <!-- Commentary -->
+        <!-- UPDATED CONTENT STARTS HERE -->
+        <h2 class="govuk-heading-l">Architecture Layers Explained</h2>
+        <p class="govuk-body">
+            This architecture is a high-level, logical representation of how UK government digital services interact. It is organised into layers, each showcasing a specific role in delivering citizen-facing services:
+        </p>
+
         <h3 class="govuk-heading-m">Digital Channels</h3>
-        <p class="govuk-body">These are the primary touchpoints for citizens...</p>
+        <p class="govuk-body">
+            These are the primary touchpoints for citizens, including GOV.UK websites, mobile apps, chat services, and trusted third-party solutions. They provide the front-end experience where users access information and complete tasks.
+        </p>
 
         <h3 class="govuk-heading-m">Interaction Layer</h3>
-        <p class="govuk-body">This layer acts as the bridge between citizen-facing channels and core systems...</p>
+        <p class="govuk-body">
+            This layer acts as the bridge between citizen-facing channels and core systems. It includes services such as GOV.UK OneLogin for secure authentication, GOV.UK Pay for payments, GOV.UK Notify for communications, and APIs that enable integration across public and private sectors. Planned components like GOV.UK Digital Backbone will simplify interaction between government organisations.
+        </p>
 
         <h3 class="govuk-heading-m">Business Logic</h3>
-        <p class="govuk-body">This layer contains the operational systems that deliver essential government services...</p>
+        <p class="govuk-body">
+            This layer contains the operational systems that deliver essential government services, such as HMRC for tax, DVLA for driver records, DWP for Universal Credit, and HMPO for passports. Each government organisation owns and runs its business logic and processes, optimising them based on user needs and policy requirements. These systems apply the rules and workflows that underpin public services, ensuring they remain compliant, efficient, and citizen focused.
+        </p>
 
         <h3 class="govuk-heading-m">Data Layer</h3>
-        <p class="govuk-body">This layer ensures secure and efficient data exchange...</p>
+        <p class="govuk-body">
+            This layer ensures secure and efficient data exchange. It includes operational platforms like Whitehall CMS, the powerhouse behind GOV.UK content, and the Data Marketplace, which will enable better data sharing across departments and sectors.
+        </p>
 
         <h3 class="govuk-heading-m">Infrastructure</h3>
-        <p class="govuk-body">At the foundation are the National Digital Exchange and cloud services...</p>
+        <p class="govuk-body">
+            At the foundation are the National Digital Exchange and cloud services, providing scalability, resilience, and interoperability. This infrastructure supports the entire architecture, ensuring services remain reliable and future ready.
+        </p>
+        <!-- UPDATED CONTENT ENDS HERE -->
 
         <!-- Architecture Diagram -->
         <div class="architecture-diagram">
+
             <!-- Layer 1 -->
             <div class="govuk-heading-m layer-title">Citizen Facing Digital Channels</div>
             <div class="architecture-row layer-1">
                 <div class="architecture-box"><a href="#">GOV.UK Websites</a></div>
                 <div class="architecture-box"><a href="#">GOV.UK Notify</a></div>
                 <div class="architecture-box"><a href="#">GOV.UK Mobile App</a></div>
-                <div class="architecture-box"><a href="#">GOV.UK Chat</a></div>
+                <div class="architecture-box dotted"><a href="#">GOV.UK Chat</a></div>
                 <div class="architecture-box"><a href="#">Third Party Solutions</a></div>
             </div>
 
             <!-- Layer 2 -->
             <div class="govuk-heading-m layer-title">Interaction Layer</div>
             <div class="architecture-row layer-2">
-                <div class="architecture-box"><a href="#">GOV.UK Digital Backbone</a></div>
+                <div class="architecture-box dotted"><a href="#">GOV.UK Digital Backbone</a></div>
                 <div class="architecture-box"><a href="#">GOV.UK Forms</a></div>
                 <div class="architecture-box"><a href="#">GOV.UK OneLogin</a></div>
                 <div class="architecture-box"><a href="#">GOV.UK Pay</a></div>
@@ -257,25 +260,26 @@
             <!-- Layer 5 -->
             <div class="govuk-heading-m layer-title">Infrastructure</div>
             <div class="architecture-row layer-5">
-                <div class="architecture-box"><a href="#">National Digital Exchange (Planned)</a></div>
-                <div class="architecture-box"><a href="#">Cloud Services (Planned)</a></div>
+                <div class="architecture-box dotted"><a href="#">National Digital Exchange</a></div>
+                <div class="architecture-box dotted"><a href="#">Cloud Services</a></div>
             </div>
+
         </div>
+
     </main>
 </div>
 
-<!-- GOV.UK Footer -->
 <footer class="govuk-footer">
     <div class="govuk-width-container">
         <p class="govuk-footer__meta">© Crown copyright</p>
     </div>
 </footer>
 
-<!-- GOV.UK Frontend JS -->
 <script src="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.js"></script>
 <script>
     window.GOVUKFrontend.initAll()
 </script>
+
 </body>
 </html>
 ``
