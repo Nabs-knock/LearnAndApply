@@ -6,61 +6,23 @@
     <title>GOV.UK Digital Architecture</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#1d70b8">
-
-    <!-- GOV.UK Frontend CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.css">
-
     <style>
-        .app-content-wrapper {
-            display: flex;
-            min-height: calc(100vh - 300px);
-        }
-        .app-sidebar {
-            background: #f3f2f1;
-            border-right: 1px solid #b1b4b6;
-            width: 220px;
-            padding: 20px;
-        }
-        .app-main-content {
-            flex: 1;
-            padding: 30px 40px;
-        }
-        .app-service-nav__list {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 40px;
-        }
-        .app-service-nav__link {
-            font-size: 19px;
-            font-weight: 600;
-            color: #1d70b8;
-            text-decoration: none;
-        }
-        .app-service-nav__link:hover {
-            text-decoration: underline;
-        }
+        .app-content-wrapper { display: flex; min-height: calc(100vh - 300px); }
+        .app-sidebar { background: #f3f2f1; border-right: 1px solid #b1b4b6; width: 220px; padding: 20px; }
+        .app-main-content { flex: 1; padding: 30px 40px; }
+        .app-service-nav__list { display: flex; list-style: none; padding: 0; margin: 0; gap: 40px; }
+        .app-service-nav__link { font-size: 19px; font-weight: 600; color: #1d70b8; text-decoration: none; }
+        .app-service-nav__link:hover { text-decoration: underline; }
     </style>
 </head>
 <body class="govuk-template__body">
-<script>
-    document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
-</script>
-
-<!-- GOV.UK Header -->
 <header class="govuk-header" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
-        <div class="govuk-header__logo">
-            <a href="index.html" class="govuk-header__link govuk-header__link--homepage">GOV.UK</a>
-        </div>
-        <div class="govuk-header__content">
-            <a href="index.html" class="govuk-header__link govuk-header__service-name">Digital Architecture</a>
-        </div>
+        <div class="govuk-header__logo"><a href="index.html" class="govuk-header__link">GOV.UK</a></div>
+        <div class="govuk-header__content"><a href="index.html" class="govuk-header__link">Digital Architecture</a></div>
     </div>
 </header>
-
-<!-- Top Navigation Tabs -->
 <nav class="app-service-nav govuk-!-margin-bottom-3" style="background:#f3f2f1; border-bottom:1px solid #b1b4b6;">
     <div class="govuk-width-container">
         <ul class="app-service-nav__list">
@@ -70,57 +32,34 @@
         </ul>
     </div>
 </nav>
-
-<!-- Phase Banner -->
 <div class="govuk-width-container">
     <div class="govuk-phase-banner">
-        <p class="govuk-phase-banner__content">
-            <strong class="govuk-tag govuk-phase-banner__content__tag">Alpha</strong>
-            <span class="govuk-phase-banner__text">
-                This page is an Alpha version and is not an official GOV.UK page.
-            </span>
-        </p>
+        <p class="govuk-phase-banner__content"><strong class="govuk-tag govuk-phase-banner__content__tag">Alpha</strong>
+        <span class="govuk-phase-banner__text">This page is an Alpha version and is not an official GOV.UK page.</span></p>
     </div>
 </div>
-
-<!-- Main Blue Header -->
 <div class="app-product-header govuk-!-padding-top-6 govuk-!-padding-bottom-6" style="background:#1d70b8; color:#fff; text-align:center;">
     <h1 class="govuk-heading-xl" style="color:#fff;">GOV.UK Digital Architecture</h1>
     <p class="govuk-body-l" style="color:#fff;">Building digital capability through common technology and services</p>
 </div>
-
-<!-- Content Wrapper -->
 <div class="app-content-wrapper">
-    <!-- Sidebar Navigation -->
     <nav class="app-sidebar">
         <h2 class="govuk-heading-s">Contents</h2>
         <ul class="govuk-list govuk-list--bullet">
-            <li><a href="introduction.html" class="govuk-link">Introduction</a></li>
-            <li><a href="who-this-is-for.html" class="govuk-link">Who this is for</a></li>
-            <li><a href="how-to-use.html" class="govuk-link">How to use it</a></li>
-            <li><a href="citizen-facing-architecture.html" class="govuk-link">Citizen-facing reference architecture</a></li>
-            <li><a href="contact.html" class="govuk-link">Contact us</a></li>
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="who-this-is-for.html">Who this is for</a></li>
+            <li><a href="how-to-use.html">How to use it</a></li>
+            <li><a href="citizen-facing-architecture.html">Citizen-facing reference architecture</a></li>
+            <li><a href="contact.html">Contact us</a></li>
         </ul>
     </nav>
-
-    <!-- Main Content -->
     <main class="app-main-content">
         <h2 class="govuk-heading-l">Welcome</h2>
         <p class="govuk-body">Use the navigation menu to explore the Citizen-Facing Architecture reference model and supporting guidance.</p>
     </main>
 </div>
-
-<!-- GOV.UK Footer -->
-<footer class="govuk-footer">
-    <div class="govuk-width-container">
-        <p class="govuk-footer__meta">© Crown copyright</p>
-    </div>
-</footer>
-
-<!-- GOV.UK Frontend JS -->
+<footer class="govuk-footer"><div class="govuk-width-container"><p class="govuk-footer__meta">© Crown copyright</p></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.js"></script>
-<script>
-    window.GOVUKFrontend.initAll()
-</script>
+<script>window.GOVUKFrontend.initAll()</script>
 </body>
 </html>
