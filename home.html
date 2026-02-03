@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template govuk-template--rebranded">
+<head>
+  <meta charset="utf-8">
+  <title>GOV.UK Digital Architecture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1d70b8">
+
+  <!-- GOV.UK Frontend CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.css">
+
+  <style>
+    :root{
+      --band-blue:#1d70b8;
+      --band-teal:#05ebea;
+      --ink:#1d70b8;
+      --white:#ffffff;
+      --border:#b1b4b6;
+      --panel:#f3f2f1;
+    }
+
+    /* Layout */
+    .app-content-wrapper{display:flex;min-height:calc(100vh - 300px);} /* allow footer space */
+    .app-sidebar{
+      background:var(--panel);
+      border-right:1px solid var(--border);
+      width:220px;
+      padding:20px;
+      position: sticky;
+      top: 0;
+      align-self: flex-start;
+      height: 100vh;
+      overflow:auto;
+    }
+    .app-main-content{flex:1;padding:30px 40px;}
+
+    /* Top service nav */
+    .app-service-nav__list{display:flex;list-style:none;padding:0;margin:0;gap:40px;}
+    .app-service-nav__link{font-size:19px;font-weight:600;color:var(--ink);text-decoration:none;}
+    .app-service-nav__link:hover{text-decoration:underline;}
+
+    /* Section spacing */
+    section{margin-bottom: 50px;}
+
+    /* Architecture diagram styles (from File 4) */
+    .architecture-diagram{display:grid;grid-template-columns:220px auto;gap:12px 20px;margin-top:30px;}
+    .band-blue{background:var(--band-blue);} .band-teal{background:var(--band-teal);}    
+    .layer-title{color:#fff;margin:0;display:flex;align-items:center;padding:10px;}
+    .layer-band{padding:10px;}
+    .architecture-row{display:flex;flex-wrap:wrap;gap:8px;}
+    .architecture-box{background:var(--white);color:var(--ink);border:2px solid var(--ink);text-align:center;padding:14px 16px;font-family:"GDS Transport",Arial,sans-serif;font-weight:700;font-size:16px;min-width:160px;flex:1 1 180px;transition:background-color .15s,color .15s,border-color .15s;}
+    .architecture-box a{color:inherit;text-decoration:none;display:block;}
+    .architecture-box.has-link:hover{background:var(--band-blue);color:#fff;border-color:var(--band-blue);} 
+    .architecture-box.has-link:hover a{text-decoration:underline;}
+    .box-links{margin-top:8px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;font-weight:400;}
+    .box-links a{font-size:14px;text-decoration:underline;font-weight:400;display:inline;}
+    .dotted{border-style:dotted;}
+    .layer-business-logic .architecture-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;}
+    .layer-infrastructure .architecture-box{flex:1 1 100%;}
+
+    /* Active link highlighting (simple) */
+    .app-sidebar a{color:#1d70b8;text-decoration:none;}
+    .app-sidebar a:hover{text-decoration:underline;}
+  </style>
+</head>
+<body class="govuk-template__body" id="top">
+<script>
+  document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
+</script>
+<a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+
+<!-- GOV.UK Header -->
+<header class="govuk-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__logo">
+      <a href="#top" class="govuk-header__link govuk-header__link--homepage">GOV.UK</a>
+    </div>
+    <div class="govuk-header__content">
+      <a href="#top" class="govuk-header__link govuk-header__service-name">Digital Architecture</a>
+    </div>
+  </div>
+</header>
+
+<!-- Top Navigation Tabs -->
+<nav class="app-service-nav govuk-!-margin-bottom-3" style="background:#f3f2f1; border-bottom:1px solid #b1b4b6;">
+  <div class="govuk-width-container">
+    <ul class="app-service-nav__list">
+      <li><a href="#introduction" class="app-service-nav__link">Documentation</a></li>
+      <li><a href="#" class="app-service-nav__link">Support</a></li>
+      <li><a href="#contact" class="app-service-nav__link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Product Header -->
+<div class="app-product-header govuk-!-padding-top-6 govuk-!-padding-bottom-6" style="background:#1d70b8; color:#fff; text-align:center;">
+  <h1 class="govuk-heading-xl" style="color:#fff;">GOV.UK Digital Architecture</h1>
+</div>
+
+<!-- Content Wrapper -->
+<div class="app-content-wrapper">
+  <!-- Sidebar Navigation (in-page) -->
+  <nav class="app-sidebar" aria-label="Section navigation">
+    <h2 class="govuk-heading-s">Contents</h2>
+    <ul class="govuk-list govuk-list--bullet">
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#who-this-is-for">Who this is for</a></li>
+      <li><a href="#how-to-use">How to use it</a></li>
+      <li><a href="#citizen-architecture">Citizen-facing reference architecture</a></li>
+      <li><a href="#contact">Contact us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content" class="app-main-content">
+
+    <!-- SECTION: Introduction (File 1 was labelled Introduction but contained Contact content) -->
+    <section id="introduction" aria-labelledby="intro-heading">
+      <h2 id="intro-heading" class="govuk-heading-l">Introduction</h2>
+      <p class="govuk-body">The Citizen-Facing Architecture provides a clear, logical, layered view of how UK government digital services interact within a complex environment. Each layer represents a distinct function, from citizen-facing channels to data and infrastructure, and shows how these layers work together to deliver secure, consistent, and accessible experiences.
+
+While the actual topology of government systems is far more complex, this architecture offers a simplified version to help users understand the key components and their relationships. It brings together operational services and planned innovations under one framework, simplifying access to information and helping teams design services that work across departments.</p>
+    </section>
+
+    <!-- SECTION: Who this is for (from File 2) -->
+    <section id="who-this-is-for" aria-labelledby="who-heading">
+      <h2 id="who-heading" class="govuk-heading-l">Who this is for</h2>
+      <p class="govuk-body">This view is designed for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Service Designers planning future digital services.</li>
+        <li>Developers &amp; Architects integrating with public sector APIs.</li>
+        <li>Private Sector Partners collaborating on digital solutions.</li>
+        <li>Citizens who want to understand how services connect.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: How to use it (from File 3) -->
+    <section id="how-to-use" aria-labelledby="how-heading">
+      <h2 id="how-heading" class="govuk-heading-l">How to use it</h2>
+      <p class="govuk-body">Use this architecture as:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>A reference model for designing citizen-facing services.</li>
+        <li>A guide for aligning new initiatives with common government digital standards and shared capabilities.</li>
+        <li>A tool for identifying integration points with APIs and data layers.</li>
+        <li>A roadmap for understanding what’s operational today and what’s planned.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: Citizen-facing reference architecture (from File 4) -->
+    <section id="citizen-architecture" aria-labelledby="arch-heading">
+      <h2 id="arch-heading" class="govuk-heading-l">Citizen-facing reference architecture</h2>
+
+      <!-- Architecture Diagram from File 4 -->
+      <div class="architecture-diagram">
+        <!-- Digital Channels -->
+        <div class="govuk-heading-m layer-title band-blue">Citizen Facing Digital Channels</div>
+        <div class="layer-band band-blue">
+          <div class="architecture-row">
+            <div class="architecture-box has-link">
+              <a href="https://www.gov.uk/government/publications/govuk-proposition/govuk-proposition" target="_blank" rel="noopener noreferrer">GOV.UK Websites</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.notifications.service.gov.uk/" target="_blank" rel="noopener noreferrer">GOV.UK Notify</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.gov.uk/guidance/download-the-govuk-app" target="_blank" rel="noopener noreferrer">GOV.UK Mobile App</a>
+              <div class="box-links">
+                <a href="https://docs.publishing.service.gov.uk/mobile/" target="_blank" rel="noopener noreferrer"> </a>
+              </div>
+            </div>
+            <div class="architecture-box dotted has-link">
+              <a href="https://www.gov.uk/algorithmic-transparency-records/dsit-gov-dot-uk-chat" target="_blank" rel="noopener noreferrer">GOV.UK Chat</a>
+              <div class="box-links">
+                <a href="https://insidegovuk.blog.gov.uk/2024/11/05/were-running-a-private-beta-of-gov-uk-chat/" target="_blank" rel="noopener noreferrer"></a>
+              </div>
+            </div>
+            <div class="architecture-box">Third Party Solutions &amp; Agents</div>
+          </div>
+        </div>
+
+        <!-- Interaction -->
+        <div class="govuk-heading-m layer-title band-teal">Interaction Layer</div>
+        <div class="layer-band band-teal">
+          <div class="architecture-row">
+            <div class="architecture-box dotted has-link">
+              <a href="https://github.com/govuk-digital-backbone" target="_blank" rel="noopener noreferrer">GOV.UK Digital Backbone</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.forms.service.gov.uk/" target="_blank" rel="noopener noreferrer">GOV.UK Forms</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.sign-in.service.gov.uk/" target="_blank" rel="noopener noreferrer">GOV.UK OneLogin</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.payments.service.gov.uk/" target="_blank" rel="noopener noreferrer">GOV.UK Pay</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.api.gov.uk/#uk-public-sector-apis" target="_blank" rel="noopener noreferrer">Public Sector APIs</a>
+            </div>
+            <div class="architecture-box">Private Sector APIs</div>
+          </div>
+        </div>
+
+        <!-- Business Logic -->
+        <div class="govuk-heading-m layer-title band-blue">Business Logic</div>
+        <div class="layer-band band-blue layer-business-logic">
+          <div class="architecture-row">
+            <div class="architecture-box">HMRC Tax System</div>
+            <div class="architecture-box">DVLA Drivers System</div>
+            <div class="architecture-box">DEFRA Grants &amp; Payments</div>
+            <div class="architecture-box">HMPO Apply for Passport</div>
+            <div class="architecture-box">MoJ Justice Services Suite</div>
+            <div class="architecture-box">DWP Universal Credit</div>
+            <div class="architecture-box">Home Office Right to Work</div>
+            <div class="architecture-box">Companies House Register Company</div>
+            <div class="architecture-box">HMRC Tax Free Childcare Account</div>
+            <div class="architecture-box">+++</div>
+          </div>
+        </div>
+
+        <!-- Data -->
+        <div class="govuk-heading-m layer-title band-teal">Data Layer</div>
+        <div class="layer-band band-teal">
+          <div class="architecture-row">
+            <div class="architecture-box has-link">
+              <a href="https://docs.publishing.service.gov.uk/repos/whitehall.html" target="_blank" rel="noopener noreferrer">GOV.UK “Whitehall” CMS</a>
+              <div class="box-links">
+                <a href="https://www.gov.uk/guidance/how-to-publish-on-gov-uk" target="_blank" rel="noopener noreferrer"></a>
+                <a href="https://frontend.design-system.service.gov.uk/" target="_blank" rel="noopener noreferrer"></a>
+              </div>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.datamarketplace.gov.uk/" target="_blank" rel="noopener noreferrer">Data Marketplace</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.data.gov.uk/" target="_blank" rel="noopener noreferrer">Public Sector Data Stores</a>
+            </div>
+            <div class="architecture-box">Private Sector Data Stores</div>
+          </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="govuk-heading-m layer-title band-blue">Infrastructure</div>
+        <div class="layer-band band-blue layer-infrastructure">
+          <div class="architecture-row">
+            <div class="architecture-box dotted has-link">
+              <a href="https://co-cddo.github.io/ndx/" target="_blank" rel="noopener noreferrer">National Digital Exchange</a>
+            </div>
+            <div class="architecture-box has-link">
+              <a href="https://www.gov.uk/guidance/government-cloud-first-policy" target="_blank" rel="noopener noreferrer">Cloud Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Architecture Diagram -->
+    </section>
+
+    <!-- SECTION: Contact us (from File 5) -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="govuk-heading-l">Get in touch</h2>
+      <p class="govuk-body">For questions, feedback, or collaboration opportunities, please contact us at:</p>
+      <p class="govuk-body"><a href="mailto:publicsector.architecture@dsit.gov.uk" class="govuk-link">publicsector.architecture@dsit.gov.uk</a></p>
+    </section>
+
+    <p class="govuk-body"><a class="govuk-link" href="#top">Back to top</a></p>
+  </main>
+</div>
+
+<!-- GOV.UK Footer -->
+<footer class="govuk-footer">
+  <div class="govuk-width-container">
+    <p class="govuk-footer__meta">© Crown copyright</p>
+  </div>
+</footer>
+
+<!-- GOV.UK Frontend JS -->
+<script src="https://cdn.jsdelivr.net/npm/govuk-frontend@5.13.0/dist/govuk/govuk-frontend.min.js"></script>
+<script>
+  window.GOVUKFrontend.initAll();
+</script>
+</body>
+</html>
